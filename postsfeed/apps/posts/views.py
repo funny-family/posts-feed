@@ -1,6 +1,9 @@
-# from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render
+# from django.http import HttpResponse
 
 # Create your views here.
 def posts(request):
-    return HttpResponse('test')
+    return render(
+        request,
+        'posts/potsList.html'
+    )

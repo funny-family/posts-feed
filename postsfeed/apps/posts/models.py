@@ -8,6 +8,10 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+    
+    class Meta:
+        verbose_name = 'Post'
+        verbose_name_plural = 'Posts'
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete = models.CASCADE)
@@ -17,3 +21,7 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.author_name
+
+    class Meta:
+        verbose_name = 'Comment'
+        verbose_name_plural = 'Comments'

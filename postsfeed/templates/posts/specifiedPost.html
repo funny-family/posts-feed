@@ -5,4 +5,25 @@
   <h3>{{ post.title }}</h3>
   <p>{{ post.content }}</p>
   <em>{{ post.post_publication_date }}</em>
+  <hr>
+    {% if comments %}
+      {% for comment in comments %}
+        <div>
+          <b>{{ comment.author_name }}</b>
+          <p>{{ comment.comment_text }}</p>
+          <em>{{ comment.comment_publication_date }}</em>
+        </div>
+      {% endfor %}
+    {% else %}
+      <div>There are no comments yet! 😟</div>
+    {% endif %}
+  <hr>
+  <form action="{% url 'posts:leaveComment' post.id %}" method="POST">
+    {% csrf_token %} <!-- csrf protection -->
+    <input type="text" name="author-name" placeholder="Your name" autocomplete="off" />
+    <br>
+    <textarea name="comment" placeholder="Write a comment here" cols="30" rows="10"></textarea>
+    <br>
+    <button type="submit">Leave comment</button>
+  </form>
 {% endblock %}

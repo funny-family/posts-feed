@@ -5,7 +5,7 @@ from .models import Post, Comment
 
 # Create your views here.
 def posts(request):
-    sortedPostsByPublicationDate = Post.objects.order_by('-post_publication_date')
+    sortedPostsByPublicationDate = Post.objects.order_by('-publication_date')
     return render(
         request,
         'posts/potsList.html',
@@ -16,15 +16,15 @@ def posts(request):
 
 def specifiedPost(request, postId):
     try:
-        receivedPost = Post.objects.get(id = postId)
+        specifiedPost = Post.objects.get(id = postId)
     except:
         raise Http404('Post not found!')
 
-    # comments = receivedPost.comment_set.order_by('-comment_publication_date')
-    comments = receivedPost.comment_set.order_by('-id')
+    comments = specifiedPost.comment_set.order_by('-publication_date')
+    # comments = receivedPost.comment_set.order_by('-id')
 
     return render(request, 'posts/specifiedPost.html', {
-        'post': receivedPost,
+        'post': specifiedPost,
         'comments': comments
     })
 
@@ -36,6 +36,6 @@ def leaveComment(request, postId):
 
     receivedPost.comment_set.create(
         author_name = request.POST['author-name'], # author_name is a name from db
-        comment_text = request.POST['comment'] # comment_text is a name from db
+        text = request.POST['comment'] # text is a name from db
     )
     return HttpResponseRedirect(reverse('posts:specifiedPost', args = (receivedPost.id,)))

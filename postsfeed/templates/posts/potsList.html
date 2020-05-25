@@ -4,7 +4,12 @@
 {% block content %}
   {% if sortedPostsByPublicationDate %}
     {% for post in sortedPostsByPublicationDate %}
-      <a href="{% url 'posts:specifiedPost' post.id %}">{{ post.title }}</a>
+      <a href="{% url 'posts:specifiedPost' post.id %}">
+        <div>
+          <div>{{ post.title }}</div>
+          <p>{{ post.content }}</p>
+        </div>
+      </a>
     {% endfor %}
   {% else %}
     <div>No posts published! 😔</div>

@@ -6,6 +6,15 @@
   <p>{{ post.content }}</p>
   <em>{{ post.post_publication_date }}</em>
   <hr>
+  <form action="{% url 'posts:leaveComment' post.id %}" method="POST">
+    {% csrf_token %} <!-- csrf protection -->
+    <input type="text" name="author-name" placeholder="Your name" autocomplete="off" />
+    <br>
+    <textarea name="comment" placeholder="Write a comment here" cols="30" rows="10"></textarea>
+    <br>
+    <button type="submit">Leave comment</button>
+  </form>
+  <hr>
     {% if comments %}
       {% for comment in comments %}
         <div>
@@ -18,12 +27,4 @@
       <div>There are no comments yet! 😟</div>
     {% endif %}
   <hr>
-  <form action="{% url 'posts:leaveComment' post.id %}" method="POST">
-    {% csrf_token %} <!-- csrf protection -->
-    <input type="text" name="author-name" placeholder="Your name" autocomplete="off" />
-    <br>
-    <textarea name="comment" placeholder="Write a comment here" cols="30" rows="10"></textarea>
-    <br>
-    <button type="submit">Leave comment</button>
-  </form>
 {% endblock %}

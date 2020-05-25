@@ -33,6 +33,7 @@ ALLOWED_HOSTS = productionConfig.hosts
 # Application definition
 
 INSTALLED_APPS = [
+    'userAuth.apps.UserauthConfig',
     'posts.apps.PostsConfig',
     'django.contrib.admin',
     'django.contrib.auth',

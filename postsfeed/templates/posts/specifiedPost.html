@@ -8,14 +8,22 @@
     <em>{{ post.publication_date }}</em>
   </div>
   <hr>
-  <form action="{% url 'posts:leaveComment' post.id %}" method="POST">
-    {% csrf_token %}
-    <input type="text" name="author-name" placeholder="Your name" autocomplete="off" />
-    <br>
-    <textarea name="comment" placeholder="Write a comment here" cols="30" rows="10"></textarea>
-    <br>
-    <button type="submit">Leave comment</button>
-  </form>
+  {% if user.is_authenticated %}
+    <form action="{% url 'posts:leaveComment' post.id %}" method="POST">
+      {% csrf_token %}
+      <input 
+        type="text"
+        name="author-name"
+        autocomplete="off"
+        value="{{ user.username }}"
+        style="display: none;"
+      />
+      <br>
+      <textarea name="comment" placeholder="Write a comment here" cols="30" rows="10"></textarea>
+      <br>
+      <button type="submit">Leave comment</button>
+    </form>
+  {% endif %}
   <hr>
     {% if comments %}
       {% for comment in comments %}

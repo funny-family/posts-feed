@@ -8,6 +8,7 @@
 <body>
   <div class="top-navbar">
     {% if user.is_authenticated %}
+      <div>{{ user.username }}</div>
       <a href="{% url 'signOut' %}">Sign out</a>
     {% else %}
       <a href="{% url 'signIn' %}">Sign in</a>

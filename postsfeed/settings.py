@@ -33,8 +33,9 @@ ALLOWED_HOSTS = productionConfig.hosts
 # Application definition
 
 INSTALLED_APPS = [
-    'userAuth.apps.UserauthConfig',
     'posts.apps.PostsConfig',
+    'users.apps.UsersConfig',
+    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

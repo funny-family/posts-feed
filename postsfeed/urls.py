@@ -20,6 +20,7 @@ from users.views import signUp
 
 urlpatterns = [
     path('posts/', include('posts.urls'), name = 'posts'),
+    path('', include('posts.urls'), name = 'posts'),
     path('admin/', admin.site.urls),
     path('users/sign_up', signUp, name = 'signUp'),
     path('users/sign_in', views.LoginView.as_view(template_name = 'users/sign_in.html'), name = 'signIn'),

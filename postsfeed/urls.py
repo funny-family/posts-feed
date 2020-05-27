@@ -17,10 +17,12 @@ from django.contrib import admin
 from django.contrib.auth import views
 from django.urls import path, include
 from users.views import signUp
+from posts.views import PostCreateView
 
 urlpatterns = [
-    path('posts/', include('posts.urls'), name = 'posts'),
     path('', include('posts.urls'), name = 'posts'),
+    path('posts/', include('posts.urls'), name = 'posts'),
+    path('posts/new/', PostCreateView.as_view(template_name = 'posts/post_form.html'), name = 'postCreate'),
     path('admin/', admin.site.urls),
     path('users/sign_up', signUp, name = 'signUp'),
     path('users/sign_in', views.LoginView.as_view(template_name = 'users/sign_in.html'), name = 'signIn'),

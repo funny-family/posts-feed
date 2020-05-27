@@ -1,6 +1,7 @@
 from django.http import Http404, HttpResponseRedirect
 from django.urls import reverse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.views.generic import CreateView
 from .models import Post, Comment
 
 # Create your views here.
@@ -21,12 +22,16 @@ def specifiedPost(request, postId):
         raise Http404('Post not found!')
 
     comments = specifiedPost.comment_set.order_by('-publication_date')
-    # comments = receivedPost.comment_set.order_by('-id')
 
     return render(request, 'posts/specifiedPost.html', {
         'post': specifiedPost,
         'comments': comments
     })
+
+class PostCreateView(CreateView):
+    model = Post
+    success_url = '/' # redirect to '/'
+    fields = ['title', 'content']
 
 def leaveComment(request, postId):
     try:

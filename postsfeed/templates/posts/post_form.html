@@ -1,0 +1,18 @@
+
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} New post {% endblock %}
+{% block content %}
+  {% if user.is_authenticated %}
+  <div>
+    <form method="POST">
+      {% csrf_token %}
+      <fieldset>
+        {{ form|crispy }}
+        <button type="submit">Create post</button>
+      </fieldset>
+    </form>
+  </div>
+  {% endif %}
+{% endblock %}

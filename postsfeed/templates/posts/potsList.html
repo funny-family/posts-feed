@@ -1,17 +1,8 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block title %} Posts {% endblock %}
 {% block content %}
-  {% if user.is_authenticated %}
-  <div>
-    <form method="POST">
-      {% csrf_token %}
-      <input type="text" required name="title">
-      <textarea name="content" required cols="30" rows="10"></textarea>
-      <button type="submit">Create post</button>
-    </form>
-  </div>
-  {% endif %}
   {% if sortedPostsByPublicationDate %}
     {% for post in sortedPostsByPublicationDate %}
       <a href="{% url 'posts:specifiedPost' post.id %}">

@@ -3,59 +3,65 @@
 
 {% block title %} Posts {% endblock %}
 {% block content %}
+<div style="margin: 20px 40px;">
   <div class="posts-container">
     {% if sortedPostsByPublicationDate %}
       {% for post in sortedPostsByPublicationDate %}
-        <div class="post">
-          <a href="{% url 'posts:specifiedPost' post.id %}">
+        <a class="post-link-container" href="{% url 'posts:specifiedPost' post.id %}">
+          <div class="post">
             <div class="post__title">{{ post.title }}</div>
             <p class="post__content">{{ post.content }}</p>
-          </a>
-        </div>
-        <div class="post__limiter"></div>
+          </div>
+        </a>
+        <div class="post-limiter"></div>
       {% endfor %}
     {% else %}
       <div>No posts published! 😔</div>
     {% endif %}
-    <style>
-    .posts-container {
-      box-sizing: border-box;
-      width: 800px;
-      margin: auto;
-    }
-
-    .post {
-      padding: 12px 0;
-    }
-
-    .post__title {
-      font-size: 40px;
-      font-weight: bolder;
-      text-align: center;
-      padding: 8px 0;
-    }
-    
-    .post__content {
-      font-size: 20px;
-      white-space: nowrap;
-      width: 800px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .post__limiter {
-      border-bottom: 1px solid #adadad;
-      margin: 16px 0;
-    }
-
-    .post:hover {
-      background-color: #f1f1f1;
-      transition: background-color 0.2s ease-in-out;
-    }
-
-    .post:not(:hover) {
-      transition: background-color 0.4s ease-in-out;
-    }
-    </style>
   </div>
+</div>
+<style>
+.posts-container {
+  box-sizing: border-box;
+  width: 800px;
+  margin: auto;
+}
+
+.post-link-container {
+  color: black;
+}
+
+.post {
+  padding: 12px 0;
+}
+
+.post__title {
+  font-size: 40px;
+  font-weight: bolder;
+  text-align: center;
+  padding: 8px 0;
+}
+
+.post__content {
+  width: 800px;
+  font-size: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.post-limiter {
+  border-bottom: 1px solid #adadad;
+  margin: 16px 0;
+}
+
+.post:hover {
+  background-color: #f1f1f1;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.post:not(:hover) {
+  transition: background-color 0.4s ease-in-out;
+}
+</style>
 {% endblock %}

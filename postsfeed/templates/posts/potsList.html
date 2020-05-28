@@ -3,16 +3,55 @@
 
 {% block title %} Posts {% endblock %}
 {% block content %}
-  {% if sortedPostsByPublicationDate %}
-    {% for post in sortedPostsByPublicationDate %}
-      <a href="{% url 'posts:specifiedPost' post.id %}">
-        <div>
-          <div>{{ post.title }}</div>
-          <p>{{ post.content }}</p>
+  <div class="posts-container">
+    {% if sortedPostsByPublicationDate %}
+      {% for post in sortedPostsByPublicationDate %}
+        <div class="post">
+          <a href="{% url 'posts:specifiedPost' post.id %}">
+            <div class="post__title">{{ post.title }}</div>
+            <p class="post__content">{{ post.content }}</p>
+          </a>
         </div>
-      </a>
-    {% endfor %}
-  {% else %}
-    <div>No posts published! 😔</div>
-  {% endif %}
+        <div class="post__limiter"></div>
+      {% endfor %}
+    {% else %}
+      <div>No posts published! 😔</div>
+    {% endif %}
+    <style>
+    .posts-container {
+      box-sizing: border-box;
+      width: 800px;
+      margin: auto;
+    }
+
+    .post {
+      padding: 12px 0;
+    }
+
+    .post__title {
+      font-size: 40px;
+      font-weight: bolder;
+      text-align: center;
+      padding: 8px 0;
+    }
+    
+    .post__content {
+      font-size: 20px;
+    }
+
+    .post__limiter {
+      border-bottom: 1px solid #adadad;
+      margin: 16px 0;
+    }
+
+    .post:hover {
+      background-color: #f1f1f1;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    .post:not(:hover) {
+      transition: background-color 0.4s ease-in-out;
+    }
+    </style>
+  </div>
 {% endblock %}

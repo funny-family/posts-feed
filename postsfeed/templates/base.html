@@ -51,6 +51,31 @@ em {
   font-style: normal;
 }
 
+input {
+  border: none;
+  border-radius: 8px;
+  padding: 8px 8px;
+  color: #2a2e3a;
+  border: 1px solid #e5e6ea;
+  background-color: #f5f6f8;
+  font-family: 'Rubik', sans-serif;
+  outline: none;
+}
+
+input:focus {
+  border: 1.8px solid var(--main-blue);
+  transition: border 0.12s ease-in-out;
+}
+
+input:not(:focus) {
+  border: 1px solid #e5e6ea;
+  transition: border 0.16s ease-in-out;
+}
+
+input::placeholder {
+  color: #6f738c;
+}
+
 button {
   border: none;
   box-sizing: border-box;

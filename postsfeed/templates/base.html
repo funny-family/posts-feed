@@ -9,7 +9,7 @@
 <body>
   <div class="top-navbar">
     {% if user.is_authenticated %}
-      <div><strong>Hello ✋</strong> {{ user.username }}</div>
+      <div><strong style="padding: 0 8px;">Hello ✋</strong> {{ user.username }}</div>
       <div>
         <a class="navbar-link" href="{% url 'postCreate' %}">Create new post</a>
         <a class="navbar-link" href="{% url 'signOut' %}">Sign out</a>
@@ -94,6 +94,15 @@ button:active {
 .navbar-link {
   color: white;
   padding: 0 12px;
+}
+
+.navbar-link:hover {
+  color: #dddddd;
+  transition: color 0.4s ease-in-out;
+}
+
+.navbar-link:not(:hover) {
+  transition: color 0.4s ease-in-out;
 }
 </style>
 </html>

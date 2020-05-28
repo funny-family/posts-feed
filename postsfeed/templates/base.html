@@ -9,7 +9,7 @@
 <body>
   <div class="top-navbar">
     {% if user.is_authenticated %}
-      <div>{{ user.username }}</div>
+      <div>Hello ✋ {{ user.username }}</div>
       <a href="{% url 'postCreate' %}">Create new post</a>
       <a href="{% url 'signOut' %}">Sign out</a>
     {% else %}
@@ -78,6 +78,11 @@ button:active {
 
 .top-navbar {
   width: 100%;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-around;
   background-color: antiquewhite;
 }
 </style>

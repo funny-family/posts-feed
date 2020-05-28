@@ -9,7 +9,7 @@
 <body>
   <div class="top-navbar">
     {% if user.is_authenticated %}
-      <div>Hello ✋ {{ user.username }}</div>
+      <div><strong>Hello ✋</strong> {{ user.username }}</div>
       <div>
         <a class="navbar-link" href="{% url 'postCreate' %}">Create new post</a>
         <a class="navbar-link" href="{% url 'signOut' %}">Sign out</a>
@@ -40,8 +40,8 @@ html {
 body {
   margin: 0;
   padding: 0;
-  width: 100%;
   height: 100%;
+  width: 100%;
   font-family: 'Rubik', sans-serif;
 }
 
@@ -81,13 +81,14 @@ button:active {
 
 .top-navbar {
   width: 100%;
-  height: 40px;
+  height: 60px;
   position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  font-size: 20px;
   color: white;
   background-color: var(--main-blue);
 }

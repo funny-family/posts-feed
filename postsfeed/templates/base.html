@@ -64,6 +64,7 @@ input {
 
 input:focus {
   border: 1.8px solid var(--main-blue);
+  background-color: white;
   transition: border 0.12s ease-in-out;
 }
 
@@ -73,6 +74,32 @@ input:not(:focus) {
 }
 
 input::placeholder {
+  color: #6f738c;
+}
+
+textarea {
+  border: none;
+  border-radius: 8px;
+  padding: 8px 8px;
+  color: #2a2e3a;
+  border: 1px solid #e5e6ea;
+  background-color: #f5f6f8;
+  font-family: 'Rubik', sans-serif;
+  outline: none;
+}
+
+textarea:focus {
+  border: 1.8px solid var(--main-blue);
+  background-color: white;
+  transition: border 0.12s ease-in-out;
+}
+
+textarea:not(:focus) {
+  border: 1px solid #e5e6ea;
+  transition: border 0.16s ease-in-out;
+}
+
+textarea::placeholder {
   color: #6f738c;
 }
 

@@ -16,19 +16,29 @@
 </div>
 {% endif %}
 <style>
+.control-label {
+  font-size: 24px;
+}
+
 input {
   width: 600px;
+  margin: 10px 0;
 }
 
 textarea {
   --textarea-width: 600px;
   --textarea-height: 200px;
   box-sizing: border-box;
+  margin: 10px 0;
   width: var(--textarea-width);
   min-width: var(--textarea-width);
   max-width: var(--textarea-width);
   height: var(--textarea-height);
   min-height: var(--textarea-height);
+}
+
+button {
+  margin: 8px 0;
 }
 
 .post-creation-form {

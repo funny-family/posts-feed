@@ -4,15 +4,38 @@
 
 {% block title %} New post {% endblock %}
 {% block content %}
-  {% if user.is_authenticated %}
-  <div>
-    <form method="POST">
-      {% csrf_token %}
-      <fieldset>
-        {{ form|crispy }}
-        <button type="submit">Create post</button>
-      </fieldset>
-    </form>
-  </div>
-  {% endif %}
+{% if user.is_authenticated %}
+<div class="post-creation-form">
+  <form method="POST">
+    {% csrf_token %}
+    <fieldset>
+      {{ form|crispy }}
+      <button type="submit">Create post</button>
+    </fieldset>
+  </form>
+</div>
+{% endif %}
+<style>
+input {
+  width: 600px;
+}
+
+textarea {
+  --textarea-width: 600px;
+  --textarea-height: 200px;
+  box-sizing: border-box;
+  width: var(--textarea-width);
+  min-width: var(--textarea-width);
+  max-width: var(--textarea-width);
+  height: var(--textarea-height);
+  min-height: var(--textarea-height);
+}
+
+.post-creation-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+</style>
 {% endblock %}

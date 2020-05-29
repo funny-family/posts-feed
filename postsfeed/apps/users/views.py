@@ -10,8 +10,7 @@ def signUp(request):
         if signUpForm.is_valid():
             signUpForm.save()
             username = signUpForm.cleaned_data.get('username')
-            messages.success(request, f'Welcome { username }!')
-            return redirect('/posts/')
+            return redirect('../users/sign_in')
     else:
         signUpForm = UserSignUpForm()
     return render(

@@ -40,7 +40,7 @@
         </div>
       {% endfor %}
     {% else %}
-      <div>There are no comments yet! 😟</div>
+      <div class="no-comments-block">There are no comments yet! 😟</div>
   </div>
 </div>
 {% endif %}
@@ -102,6 +102,12 @@ button {
 .post-comment__date {
   font-size: 12px;
   padding: 4px 0;
+}
+
+.no-comments-block {
+  font-size: 28px;
+  text-align: center;
+  margin: 40px 0;
 }
 </style>
 {% endblock %}

@@ -9,7 +9,7 @@
       {% for post in sortedPostsByPublicationDate %}
         <a class="post-link-container" href="{% url 'posts:specifiedPost' post.id %}">
           <div class="post">
-            <div class="post__title">{{ post.title }}</div>
+            <h1 class="post__title">{{ post.title }}</h1>
             <p class="post__content">{{ post.content }}</p>
           </div>
         </a>
@@ -37,7 +37,6 @@
 
 .post__title {
   font-size: 40px;
-  font-weight: bolder;
   text-align: center;
   padding: 8px 0;
 }

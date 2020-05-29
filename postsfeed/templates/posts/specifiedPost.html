@@ -3,13 +3,11 @@
 {% block title %}{{ post.title }}{% endblock %}
 {% block content %}
 <div class="specified-post-page">
-  <!-- <div class="specified-post-container"> -->
-    <div class="post">
-      <h1 class="post__title">{{ post.title }}</h1>
-      <p class="post__content">{{ post.content }}</p>
-      <div class="post__date"><em>{{ post.publication_date }}</em></div>
-    </div>
-  <!-- </div> -->
+  <div class="post">
+    <h1 class="post__title">{{ post.title }}</h1>
+    <p class="post__content">{{ post.content }}</p>
+    <div class="post__date"><em>{{ post.publication_date }}</em></div>
+  </div>
   <div class="specified-post-comment-form">
     {% if user.is_authenticated %}
       <form action="{% url 'posts:leaveComment' post.id %}" method="POST">
@@ -37,8 +35,8 @@
       {% for comment in comments %}
         <div class="post-comment">
           <div class="post-comment__author-name">{{ comment.author_name }}</div>
-          <p class="post-comment__text">{{ comment.text }}</p>
           <div class="post-comment__date"><em>{{ comment.publication_date }}</em></div>
+          <p class="post-comment__text">{{ comment.text }}</p>
         </div>
       {% endfor %}
     {% else %}
@@ -47,11 +45,6 @@
 </div>
 {% endif %}
 <style>
-body {
-  height: 100%;
-  border: 2px solid red;
-}
-
 textarea {
   width: 800px;
   min-width: 800px;
@@ -89,14 +82,10 @@ button {
   padding: 12px 0;
 }
 
-.post-comments {
-  /* border: 1px solid green; */
-}
-
 .post-comment {
   box-sizing: border-box;
   margin: 8px 0;
-  padding: 12px;
+  padding: 8px 12px;
   border-radius: 8px;
   border: 1.8px solid #2d8eff;
 }
@@ -111,9 +100,7 @@ button {
 }
 
 .post-comment__date {
-  width: 100%;
-  /* float: right; */
-  font-size: 14px;
+  font-size: 12px;
   padding: 4px 0;
 }
 </style>

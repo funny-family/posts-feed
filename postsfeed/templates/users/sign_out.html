@@ -3,10 +3,27 @@
 
 {% block title %} Sign out {% endblock %}
 {% block content %}
-  <h1>You have been logged out!</h1>
-    <small>
-      <a href="{% url 'signIn' %}">Sign in again</a>
-      <a href="{% url 'posts' %}">Go back to posts</a>
-    </small>
-  </div>
+<div class="sign-out-block">
+  <h1 class="sign-out-block__header">You have been logged out!</h1>
+  <div class="sign-out-block__paragraph">See ya next time! 🙋‍♂️</div>
+</div>
+<style>
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+.sign-out-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.sign-out-block__paragraph {
+  font-size: 28px;
+}
+</style>
 {% endblock %}

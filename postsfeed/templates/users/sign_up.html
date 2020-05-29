@@ -3,19 +3,56 @@
 
 {% block title %} Sign up {% endblock %}
 {% block content %}
-  <div>
-    <form method="POST">
-      {% csrf_token %}
-      <fieldset>
-        <legend>Sign up?</legend>
-        {{ form|crispy }}
-        <button type="submit">Sign up</button>
-      </fieldset>
-    </form>
-  </div>
-  <div>
-    <small>
-      Sign in here -> <a href="{% url 'signIn' %}">Sign in</a>
-    </small>
-  </div>
+<div class="sign-up-form-container">
+  <form class="sign-up-form" method="POST">
+    {% csrf_token %}
+    <fieldset>
+      {{ form|crispy }}
+      <button type="submit">Sign up</button>
+    </fieldset>
+  </form>
+</div>
+<style>
+body {
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid red;
+}
+
+.control-label {
+  font-size: 24px;
+}
+
+input {
+  margin: 10px 0;
+}
+
+ul {
+  display: block;
+  list-style-type: none;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 0px;
+}
+
+p {
+  color: #3d3d3d;
+  font-size: 18px;
+}
+
+li {
+  color: #3d3d3d;
+  font-size: 18px;
+  padding: 2px 0;
+}
+
+.sign-up-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 140px;
+}
+</style>
 {% endblock %}

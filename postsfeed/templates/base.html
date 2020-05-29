@@ -16,6 +16,7 @@
       </div>
     {% else %}
       <div>
+        <a class="navbar-link" href="{% url 'posts:posts' %}">Posts</a>
         <a class="navbar-link" href="{% url 'signIn' %}">Sign in</a>
         <a class="navbar-link" href="{% url 'signUp' %}">Sign up</a>
       </div>

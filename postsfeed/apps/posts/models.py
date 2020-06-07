@@ -4,6 +4,7 @@ from django.db import models
 class Post(models.Model):
     title = models.CharField('title', max_length = 50)
     content = models.TextField('content')
+    author_name = models.CharField('author_name', max_length = 50)
     publication_date = models.DateTimeField('publication_date', auto_now = True)
 
     def __str__(self):

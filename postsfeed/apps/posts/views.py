@@ -31,7 +31,7 @@ def specifiedPost(request, postId):
 class PostCreateView(CreateView):
     model = Post
     success_url = '/' # redirect to '/'
-    fields = ['title', 'content']
+    fields = ['title', 'content', 'author_name']
 
 def leaveComment(request, postId):
     try:

@@ -10,6 +10,13 @@
     {% csrf_token %}
     <fieldset>
       {{ form|crispy }}
+      <input 
+          type="text"
+          name="author-name"
+          autocomplete="off"
+          value="{{ user.username }}"
+          style="display: none;"
+      />
       <button type="submit">Create post</button>
     </fieldset>
   </form>

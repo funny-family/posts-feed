@@ -6,8 +6,10 @@
   <div class="post">
     <h1 class="post__title">{{ post.title }}</h1>
     <p class="post__content">{{ post.content }}</p>
-    <div>{{ post.author_name }}</div>
-    <div class="post__date"><em>{{ post.publication_date }}</em></div>
+    <div class="post__info">
+      <div>Author: <span><b>{{ post.author_name }}</b></span></div>
+      <em>{{ post.publication_date }}</em>
+    </div>
   </div>
   <div class="specified-post-comment-form">
     {% if user.is_authenticated %}
@@ -77,9 +79,10 @@ button {
   font-size: 20px;
 }
 
-.post__date {
+.post__info {
   display: flex;
-  flex-direction: row-reverse;
+  justify-content: space-between;
+  font-size: 18px;
   padding: 12px 0;
 }
 

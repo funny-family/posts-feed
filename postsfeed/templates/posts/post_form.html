@@ -9,13 +9,19 @@
   <form method="POST">
     {% csrf_token %}
     <fieldset>
-      {{ form|crispy }}
-      <input 
-          type="text"
-          name="author-name"
-          autocomplete="off"
-          value="{{ user.username }}"
-          style="display: none;"
+      <div>
+        <div class="header">Title</div>
+        <input type="text" name="title" />
+      </div>
+      <div>
+        <div class="header">Content</div>
+        <textarea name="content" cols="30" rows="10"></textarea>
+      </div>
+      <input
+        type="text"
+        name="author_name"
+        value="{{ user.username }}"
+        style="display: none;"
       />
       <button type="submit">Create post</button>
     </fieldset>
@@ -46,6 +52,10 @@ textarea {
 
 button {
   margin: 8px 0;
+}
+
+.header {
+  font-size: 24px;
 }
 
 .post-creation-form {

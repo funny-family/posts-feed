@@ -11,13 +11,12 @@
           <div class="post">
             <h1 class="post__title">{{ post.title }}</h1>
             <p class="post__content">{{ post.content }}</p>
-            <div>{{ post.author_name }}</div>
           </div>
         </a>
         <div class="post-limiter"></div>
       {% endfor %}
     {% else %}
-      <div>No posts published! 😔</div>
+      <div class="no-posts-block">No posts published! 😔</div>
     {% endif %}
   </div>
 </div>
@@ -61,6 +60,13 @@
 
 .post:not(:hover) {
   transition: background-color 0.1s ease-in-out;
+}
+
+.no-posts-block {
+  display: flex;
+  justify-content: center;
+  margin-top: 120px;
+  font-size: 40px;
 }
 </style>
 {% endblock %}

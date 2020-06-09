@@ -8,7 +8,7 @@
     <p class="post__content">{{ post.content }}</p>
     <div class="post__info">
       <div>Author: <span><b>{{ post.author_name }}</b></span></div>
-      <em>{{ post.publication_date }}</em>
+      <div>Published: <span><em>{{ post.publication_date|date:'d/m/Y' }}</em></span></div>
     </div>
   </div>
   <div class="specified-post-comment-form">
@@ -38,7 +38,7 @@
       {% for comment in comments %}
         <div class="post-comment">
           <div class="post-comment__author-name">{{ comment.author_name }}</div>
-          <div class="post-comment__date"><em>{{ comment.publication_date }}</em></div>
+          <div class="post-comment__date">Commented out: <em>{{ comment.publication_date|date:'d/m/Y' }}</em></div>
           <p class="post-comment__text">{{ comment.text }}</p>
         </div>
       {% endfor %}
